@@ -17,7 +17,8 @@
    <script type="text/javascript">
       $(".metro").metro();
    </script>
-   <?php if ( is_archive() ) :?>
+   <?php //if ( false ) :?>
+   <?php if ( is_archive() || is_single() ) :?>
    <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/cycle/jquery.cycle.all.js"></script>
    <script type="text/javascript">
 	jQuery( function() {

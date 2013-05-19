@@ -20,16 +20,6 @@
 get_header(); ?>
 
 		<?php
-		// タームの記事一覧取得
-// 		$postID = get_the_ID();
-// 		$terms = get_the_terms($postID,'press');
-
-// 		foreach ( $terms as $term ) {
-// 			$tslug = esc_html($term->slug);
-// 			$tname = esc_html($term->name);
-// 			break;
-// 		}
-
 		// 取得情報
 		$args = array(
 				'post_type' => get_post_type(),
@@ -103,15 +93,6 @@ get_header(); ?>
 					<?php
 					$tslug = esc_html($tmp_term->slug);
 					$tname = esc_html($tmp_term->name);
-					?>
-
-					<?php
-// 					pr(get_post_thumbnail_id());
-// 					// アイキャッチ画像の情報を取得
-// 					$eye_img = wp_get_attachment_image_src( get_post_thumbnail_id(), 'medium' );
-// 					list( $src, $width, $height ) = $eye_img;
-// 					$thum_eye_img = wp_get_attachment_image_src( get_post_thumbnail_id(), 'thumbnail' );
-// 					list( $thum_src, $thum_width, $thum_height ) = $thum_eye_img;
 					?>
 
 					<?php
