@@ -93,48 +93,36 @@ get_header(); ?>
 				foreach ( $taxonomies as $taxonomie ) {
 					$tax_slug = $taxonomie;
 				}
-				$terms = get_terms( $tax_slug, "get=all" );
+				$tmp_terms = get_terms( $tax_slug, "get=all" );
 
 				?>
 
 				<?php $_count = 0; ?>
-				<?php foreach ( $terms as $term ) : ?>
+				<?php foreach ( $tmp_terms as $tmp_term ) : ?>
 
 					<?php
-					$tslug = esc_html($term->slug);
-					$tname = esc_html($term->name);
-
-					$term_data = get_terms( $tax_slug, "get=$tslug" );
-					foreach ( $term_data as $tdata ){
-						$term_count = $tdata->count;
-					}
+					$tslug = esc_html($tmp_term->slug);
+					$tname = esc_html($tmp_term->name);
 					?>
 
 					<?php
-					// アイキャッチ画像の情報を取得
-					$eye_img = wp_get_attachment_image_src( get_post_thumbnail_id(), 'medium' );
-					list( $src, $width, $height ) = $eye_img;
-					$thum_eye_img = wp_get_attachment_image_src( get_post_thumbnail_id(), 'thumbnail' );
-					list( $thum_src, $thum_width, $thum_height ) = $thum_eye_img;
+// 					pr(get_post_thumbnail_id());
+// 					// アイキャッチ画像の情報を取得
+// 					$eye_img = wp_get_attachment_image_src( get_post_thumbnail_id(), 'medium' );
+// 					list( $src, $width, $height ) = $eye_img;
+// 					$thum_eye_img = wp_get_attachment_image_src( get_post_thumbnail_id(), 'thumbnail' );
+// 					list( $thum_src, $thum_width, $thum_height ) = $thum_eye_img;
 					?>
 
-					<a class="tile wide imagetext wideimage bg-color-<?php echo $shop_archive_data[$_count]['color']; ?>" href="<?php echo home_url() . '/' . $tax_slug . '/' . $tslug; ?>">
-		                 <div class="image-wrapper">
-		                    <img src="<?php echo $src;?>" style="max-width: none; max-height:none; width: 310px;">
-		                 </div>
-		                 <div class="textover-wrapper bg-color-blue">
-		                    <div class="app-label"><?php echo $tname; ?></div>
-		                 	<div class="app-count"><?php echo $term_count; ?></div>
-		                 </div>
-					</a>
-
 					<?php
+					// 件数
+					$_page = 2;
 					// 取得情報
 					$args = array(
 							'post_type' => get_post_type(),
 							'taxonomy' => $tax_slug,
 							'term' => $tslug,
-							'posts_per_page' => 2,
+							'posts_per_page' => $_page,
 					);
 					// クエリ発行
 					query_posts( $args );
@@ -151,6 +139,20 @@ get_header(); ?>
 							list( $thum_src, $thum_width, $thum_height ) = $thum_eye_img;
 							?>
 
+							<?php // ショップアーカイブ ?>
+							<?php if ( 0 === $wp_query->current_post ) :?>
+							<a class="tile wide imagetext wideimage bg-color-<?php echo $shop_archive_data[$_count]['color']; ?>" href="<?php echo home_url() . '/' . $tax_slug . '/' . $tslug; ?>">
+				                 <div class="image-wrapper" id="slider1">
+				                    <img src="<?php echo $src;?>" style="max-width: none; max-height:none; width: 310px;">
+				                 </div>
+				                 <div class="textover-wrapper bg-color-blue">
+				                    <div class="app-label"><?php echo $tmp_term->name; ?></div>
+				                 	<div class="app-count"><?php echo $tmp_term->count; ?></div>
+				                 </div>
+							</a>
+							<?php endif; ?>
+
+							<?php // 記事詳細  ?>
 							<a class="tile app bg-color-<?php echo $new_arrival_data[$_count]['color']; ?>" href="<?php the_permalink(); ?>">
 								<div class="image-wrapper" style="height: 125px; margin-top:0; padding:0;">
 									<!--<span class="icon icon-list-2"></span> -->
@@ -175,5 +177,4 @@ get_header(); ?>
 		 </div>
       </div>
    </div>
-
 <?php get_footer(); ?>

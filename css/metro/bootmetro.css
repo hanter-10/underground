@@ -2293,5 +2293,12 @@ Responsive Media Queries
    .container-fluid {
       padding: 0;
    }
+   .header-dropdown {
+   		position: relative;
+		left: 65px;
+   }
+   .win-backbutton {
+   		top: 18px;
+   }
 
 }

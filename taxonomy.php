@@ -163,8 +163,10 @@
 
 					<div data-thumb="<?php echo $thum_src;?>" data-src="<?php echo $src;?>">
 						<div class="camera_caption fadeFromBottom" >
-							<h2><?php the_title();?></h2>
-							<?php the_excerpt();?>
+							<a href="<?php the_permalink() ?>" >
+								<h2><?php the_title();?></h2>
+								<?php the_excerpt();?>
+							</a>
 						</div>
 		            </div>
 				<?php endwhile; ?>

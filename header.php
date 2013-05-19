@@ -79,10 +79,5 @@
 	           </div>
             </div>
          </div>
-         <div id="top-info" class="pull-right">
-	         <a id="settings" class="pull-left" href="#">
-	            <b class="icon-settings"></b>
-	         </a>
-         </div>
       </div>
    </header>
