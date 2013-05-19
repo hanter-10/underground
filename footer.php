@@ -17,5 +17,19 @@
    <script type="text/javascript">
       $(".metro").metro();
    </script>
+   <?php if ( is_archive() ) :?>
+   <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/js/cycle/jquery.cycle.all.js"></script>
+   <script type="text/javascript">
+	jQuery( function() {
+	    jQuery( '.slider' ) .cycle({
+	    	fx: 'fade',
+	        speed: 2000,
+	        timeout: 3000,
+	        sync: 1
+		});
+	} );
+	</script>
+	<?php endif;?>
+
 </body>
 </html>

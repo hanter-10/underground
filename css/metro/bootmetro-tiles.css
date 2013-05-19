@@ -105,7 +105,7 @@
 
 .scroll {
    -webkit-transition:left 0.6s ease;  /* here the animation is set on 5 seconds */
-      -moz-transition:left 0.6s ease;  
+      -moz-transition:left 0.6s ease;
         -o-transition:left 0.6s ease;
            transition:left 0.6s ease;
 }
@@ -223,9 +223,9 @@
 
 
 .image-wrapper span.icon {
-   font-size: 80px; 
-   height: 80px; 
-   line-height: 80px; 
+   font-size: 80px;
+   height: 80px;
+   line-height: 80px;
    width: 80px;
 }
 
@@ -505,4 +505,11 @@
    width: 180px;
    height: 150px;
    padding: 0 65px;
+}
+
+@media (max-width: 480px) {
+	.metro .tile.wide.app {
+   width: auto;
+   height: 150px;
+}
 }

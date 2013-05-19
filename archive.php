@@ -128,7 +128,22 @@ get_header(); ?>
 					query_posts( $args );
 					?>
 
+					<?php $slide_img_html = "";?>
+
 					<?php if ( have_posts() ) : ?>
+						<?php while ( have_posts() ) : the_post(); ?>
+
+							<?php
+							// アイキャッチ画像の情報を取得
+							$eye_img = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' );
+							list( $src, $width, $height ) = $eye_img;
+							$thum_eye_img = wp_get_attachment_image_src( get_post_thumbnail_id(), 'thumbnail' );
+							list( $thum_src, $thum_width, $thum_height ) = $thum_eye_img;
+							?>
+
+							<?php $slide_img_html .= "<img src='$src' style='max-width: none; max-height:none; width: 310px;'>"; ?>
+						<?php endwhile;?>
+
 						<?php while ( have_posts() ) : the_post(); ?>
 
 							<?php
@@ -142,10 +157,10 @@ get_header(); ?>
 							<?php // ショップアーカイブ ?>
 							<?php if ( 0 === $wp_query->current_post ) :?>
 							<a class="tile wide imagetext wideimage bg-color-<?php echo $shop_archive_data[$_count]['color']; ?>" href="<?php echo home_url() . '/' . $tax_slug . '/' . $tslug; ?>">
-				                 <div class="image-wrapper" id="slider1">
-				                    <img src="<?php echo $src;?>" style="max-width: none; max-height:none; width: 310px;">
+				                 <div class="image-wrapper slider" >
+				                 	<?php echo $slide_img_html; ?>
 				                 </div>
-				                 <div class="textover-wrapper bg-color-blue">
+				                 <div class="textover-wrapper bg-color-blue" style="z-index: 3;">
 				                    <div class="app-label"><?php echo $tmp_term->name; ?></div>
 				                 	<div class="app-count"><?php echo $tmp_term->count; ?></div>
 				                 </div>

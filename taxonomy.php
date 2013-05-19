@@ -100,7 +100,7 @@
 				playPause: false,
 				pagination: false,
 				thumbnails: true,
-				//hover: false,
+				hover: false,
 				opacityOnGrid: false
 				//imagePath: '<?php echo get_template_directory_uri(); ?>/img/'
 			});
