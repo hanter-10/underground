@@ -35,12 +35,26 @@
 					<?php $other_news_data= get_other_news(); ?>
 					<?php $_count = 0; ?>
 					<?php while ( have_posts() ) : the_post(); ?>
-						<a class="tile app bg-color-<?php echo $other_news_data[$_count]['color']; ?>" href="<?php the_permalink(); ?>">
-							<div class="image-wrapper">
-								<span class="icon icon-list-2"></span>
+
+						<?php
+						// アイキャッチ画像の情報を取得
+						$eye_img = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' );
+						list( $src, $width, $height ) = $eye_img;
+						$thum_eye_img = wp_get_attachment_image_src( get_post_thumbnail_id(), 'thumbnail' );
+						list( $thum_src, $thum_width, $thum_height ) = $thum_eye_img;
+						?>
+
+						<a class="tile app bg-color-<?php echo $new_arrival_data[$_count]['color']; ?>" href="<?php the_permalink(); ?>">
+							<div class="image-wrapper" style="height: 125px; margin-top:0; padding:0;">
+								<!--<span class="icon icon-list-2"></span> -->
+								<img src="<?php echo $thum_src;?>" style="max-width: none; max-height:none;">
 							</div>
-							<span class="app-label"><?php the_title(); ?></span>
+							<div class="textover-wrapper bg-color-blue" style="padding-left: 5px;">
+								<strong><?php the_title(); ?></strong>
+							</div>
+							<!--<span class="app-label"><?php the_title(); ?></span>-->
 						</a>
+
 					<?php $_count++; ?>
 					<?php if ( $_count > 5 ) $_count = 0; ?>
 					<?php endwhile; ?>
@@ -82,9 +96,17 @@
 					}
 					?>
 
-					<a class="tile wide imagetext wideimage bg-color-<?php echo $other_shop_data[$_count]['color']; ?>" href="<?php echo home_url() . '/' . $tax_slug . '/' . $tslug; ?>">
+					<?php
+					// アイキャッチ画像の情報を取得
+					$eye_img = wp_get_attachment_image_src( get_post_thumbnail_id(), 'medium' );
+					list( $src, $width, $height ) = $eye_img;
+					$thum_eye_img = wp_get_attachment_image_src( get_post_thumbnail_id(), 'thumbnail' );
+					list( $thum_src, $thum_width, $thum_height ) = $thum_eye_img;
+					?>
+
+					<a class="tile wide imagetext wideimage bg-color-<?php echo $shop_archive_data[$_count]['color']; ?>" href="<?php echo home_url() . '/' . $tax_slug . '/' . $tslug; ?>">
 		                 <div class="image-wrapper">
-		                    <img src="content/img/metro-tiles.jpg">
+		                    <img src="<?php echo $src;?>" style="max-width: none; max-height:none; width: 310px;">
 		                 </div>
 		                 <div class="textover-wrapper bg-color-blue">
 		                    <div class="app-label"><?php echo $tname; ?></div>

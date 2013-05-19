@@ -110,9 +110,17 @@ get_header(); ?>
 					}
 					?>
 
+					<?php
+					// アイキャッチ画像の情報を取得
+					$eye_img = wp_get_attachment_image_src( get_post_thumbnail_id(), 'medium' );
+					list( $src, $width, $height ) = $eye_img;
+					$thum_eye_img = wp_get_attachment_image_src( get_post_thumbnail_id(), 'thumbnail' );
+					list( $thum_src, $thum_width, $thum_height ) = $thum_eye_img;
+					?>
+
 					<a class="tile wide imagetext wideimage bg-color-<?php echo $shop_archive_data[$_count]['color']; ?>" href="<?php echo home_url() . '/' . $tax_slug . '/' . $tslug; ?>">
 		                 <div class="image-wrapper">
-		                    <img src="content/img/metro-tiles.jpg">
+		                    <img src="<?php echo $src;?>" style="max-width: none; max-height:none; width: 310px;">
 		                 </div>
 		                 <div class="textover-wrapper bg-color-blue">
 		                    <div class="app-label"><?php echo $tname; ?></div>

@@ -155,7 +155,7 @@
 
 					<?php
 					// アイキャッチ画像の情報を取得
-					$eye_img = wp_get_attachment_image_src( get_post_thumbnail_id(), 'full' );
+					$eye_img = wp_get_attachment_image_src( get_post_thumbnail_id(), 'large' );
 					list( $src, $width, $height ) = $eye_img;
 					$thum_eye_img = wp_get_attachment_image_src( get_post_thumbnail_id(), 'thumbnail' );
 					list( $thum_src, $thum_width, $thum_height ) = $thum_eye_img;

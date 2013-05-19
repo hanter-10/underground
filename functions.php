@@ -285,11 +285,11 @@ function lig_wp_setup() {
 				'slug' => 'towada',
 				'color' => 'green',
 		);
-		$data[] = array(
-				'label' => '神奈川 UnderGround.',
-				'slug' => 'kanagawa',
-				'color' => 'blue',
-		);
+// 		$data[] = array(
+// 				'label' => '神奈川 UnderGround.',
+// 				'slug' => 'kanagawa',
+// 				'color' => 'blue',
+// 		);
 		return $data;
 	}
 
@@ -324,7 +324,7 @@ function lig_wp_setup() {
 						'public' => true,
 						'show_ui' => true,
 						'hierarchical' => true,
-						'rewrite' => array( 'slug' => 'towada' ),
+						'rewrite' => array( 'slug' => 'towadas' ),
 				)
 		);
 
@@ -356,41 +356,41 @@ function lig_wp_setup() {
 					'public' => true,
 					'show_ui' => true,
 					'hierarchical' => true,
-					'rewrite' => array( 'slug' => 'tokyo' ),
+					'rewrite' => array( 'slug' => 'tokyos' ),
 				)
 		);
 
-		/* KANAGAWA */
-		register_post_type( 'kanagawa', /* post-type */
-				array(
-					'labels' => array(
-					'name' => __( '神奈川' ),
-					'singular_name' => __( 'TOKYO' )
-					),
-					'has_archive' => true,
-					'public' => true,
-					'menu_position' => 5,
-					'rewrite' => true,
-					'supports' => array('title','editor','thumbnail',
-					'custom-fields','excerpt','author','trackbacks',
-					'comments','revisions','page-attributes'),
-					)
-		);
-		/* TOKYOタクソノミー */
-		register_taxonomy(
-				'kanagawas',		/* タクソノミーの名前 */
-				'kanagawa',		/* books投稿で設定する */
-				array(
-					'hierarchical' => false, 	/* 親子関係が必要なければ false */
-					'update_count_callback' => '_update_post_term_count',
-					'label' => 'KANAGAWAのカテゴリ',
-					'singular_label' => 'KANAGAWAのカテゴリ',
-					'public' => true,
-					'show_ui' => true,
-					'hierarchical' => true,
-					'rewrite' => array( 'slug' => 'kanagawa' ),
-				)
-		);
+// 		/* KANAGAWA */
+// 		register_post_type( 'kanagawa', /* post-type */
+// 				array(
+// 					'labels' => array(
+// 					'name' => __( '神奈川' ),
+// 					'singular_name' => __( 'TOKYO' )
+// 					),
+// 					'has_archive' => true,
+// 					'public' => true,
+// 					'menu_position' => 5,
+// 					'rewrite' => true,
+// 					'supports' => array('title','editor','thumbnail',
+// 					'custom-fields','excerpt','author','trackbacks',
+// 					'comments','revisions','page-attributes'),
+// 					)
+// 		);
+// 		/* KANAGAWAタクソノミー */
+// 		register_taxonomy(
+// 				'kanagawas',		/* タクソノミーの名前 */
+// 				'kanagawa',		/* books投稿で設定する */
+// 				array(
+// 					'hierarchical' => false, 	/* 親子関係が必要なければ false */
+// 					'update_count_callback' => '_update_post_term_count',
+// 					'label' => 'KANAGAWAのカテゴリ',
+// 					'singular_label' => 'KANAGAWAのカテゴリ',
+// 					'public' => true,
+// 					'show_ui' => true,
+// 					'hierarchical' => true,
+// 					'rewrite' => array( 'slug' => 'kanagawa' ),
+// 				)
+// 		);
 	}
 }
 add_action( 'after_setup_theme', 'lig_wp_setup' );
