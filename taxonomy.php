@@ -107,6 +107,16 @@
 
 		});
 	</script>
+	<script>
+	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	  ga('create', 'UA-41331543-1', 'pk-brs.com');
+	  ga('send', 'pageview');
+
+	</script>
 </head>
 <body>
 <div class="fluid_container">
@@ -117,7 +127,7 @@
 		            <div id="header-container">
 		               <a id="backbutton" class="win-backbutton" href="javascript:history.back();"></a>
 		               <h5>UndoerGround : <strong><?php echo (get_term_by("slug", $term, $taxonomy)->name);?></strong></h5>
-		               <div class="dropdown">
+		               <div class="dropdown" style="z-index: 10000000000; position: relative;">
 		                  <a class="header-dropdown dropdown-toggle accent-color" data-toggle="dropdown" href="#">
 		                     <?php echo esc_html(get_post_type_object(get_post_type())->label ); ?> UnderGround.
 		                     <b class="caret"></b>
@@ -131,6 +141,18 @@
 			              </ul>
 			           </div>
 		            </div>
+		            <div class="ninja_onebutton" style="position: relative;top: -61;">
+						<script type="text/javascript">
+						//<![CDATA[
+						(function(d){
+						if(typeof(window.NINJA_CO_JP_ONETAG_BUTTON_7dc259188404fd2e3cc678fc40d3192f)=='undefined'){
+						    document.write("<sc"+"ript type='text\/javascript' src='http:\/\/omt.shinobi.jp\/b\/7dc259188404fd2e3cc678fc40d3192f'><\/sc"+"ript>");
+						}else{
+						    window.NINJA_CO_JP_ONETAG_BUTTON_7dc259188404fd2e3cc678fc40d3192f.ONETAGButton_Load();}
+						})(document);
+						//]]>
+						</script><span class="ninja_onebutton_hidden" style="display:none;"><?php print("http://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]); ?></span><span style="display:none;" class="ninja_onebutton_hidden"><?php echo (get_term_by("slug", $term, $taxonomy)->name);?></span>
+					</div>
 		         </div>
 		      </div>
 		   </header>

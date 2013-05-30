@@ -141,7 +141,7 @@ get_header(); ?>
 				                 <div class="image-wrapper slider" >
 				                 	<?php echo $slide_img_html; ?>
 				                 </div>
-				                 <div class="textover-wrapper bg-color-blue" style="z-index: 3;">
+				                 <div class="textover-wrapper" style="z-index: 3;">
 				                    <div class="app-label"><?php echo $tmp_term->name; ?></div>
 				                 	<div class="app-count"><?php echo $tmp_term->count; ?></div>
 				                 </div>
